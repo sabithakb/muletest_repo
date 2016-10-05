@@ -36,4 +36,9 @@ payload map ((payload01 , indexOfPayload01) -> {
 })]]></dw:set-payload>
         </dw:transform-message>
     </flow>
+    <flow name="american-fight_1.0Flow1">
+        <http:listener config-ref="HTTP_Listener_Configuration" path="/" doc:name="HTTP"/>
+        <custom-transformer class="com.americanflight.transformer.User" doc:name="Java"/>
+        <logger message="#[payload]" level="INFO" doc:name="Logger"/>
+    </flow>
 </mule>
